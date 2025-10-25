@@ -8,6 +8,7 @@ public class TeamCreateRequest {
     @NotBlank(message = "team name should not be blank")
     private String teamName;
     private String teamLead;
+    private String eventId;
 
     public String getTeamMemberId() {
         return teamMemberId;
@@ -31,5 +32,13 @@ public class TeamCreateRequest {
 
     public void setTeamLead(String teamLead) {
         this.teamLead = teamLead;
+    }
+
+    public String getEventId() {
+        return eventId;
+    }
+
+    public void setEventId(String eventId) {
+        this.eventId = eventId;
     }
 }
