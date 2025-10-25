@@ -24,7 +24,7 @@ public class Team {
 
     public Team(){}
 
-    public Team(String id,String teamName,String teamLead){
+    public Team(String id,String teamName,String teamLead) {
         this.id=id;
         this.teamName=teamName;
         this.teamLead=teamLead;

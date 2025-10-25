@@ -19,7 +19,7 @@ public class Event {
     private String organizer;
 
     @OneToMany(mappedBy = "event", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Team> teams;
+    private List<Team> teams = new ArrayList<>();
 
     public Event() {}
 
@@ -46,9 +46,7 @@ public class Event {
     }
 
     public void addTeams(Team team) {
-        if (this.teams == null) {
-            this.teams = new ArrayList<>();
-        }
-        this.teams.add(team);
+        teams.add(team);
+        team.setEvent(this);
     }
 }
