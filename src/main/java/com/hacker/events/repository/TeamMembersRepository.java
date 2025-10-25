@@ -1,6 +1,6 @@
-package com.hackIt.events.repository;
+package com.hacker.events.repository;
 
-import com.hackIt.events.domain.TeamMember;
+import com.hacker.events.domain.TeamMember;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

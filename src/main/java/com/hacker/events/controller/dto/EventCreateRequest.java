@@ -1,4 +1,4 @@
-package com.hackIt.events.controller.dto;
+package com.hacker.events.controller.dto;
 import jakarta.validation.constraints.NotBlank;
 public class EventCreateRequest{
     @NotBlank(message = "event name is must")

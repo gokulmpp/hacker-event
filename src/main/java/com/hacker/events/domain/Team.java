@@ -1,4 +1,4 @@
-package com.hackIt.events.domain;
+package com.hacker.events.domain;
 
 
 import jakarta.persistence.*;
@@ -12,48 +12,34 @@ public class Team {
 
     @Id
     private String id;
-    @Column(name = "team_name")
     private String teamName;
-    @Column(name = "team_lead")
     private String teamLead;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name="event_id",nullable = true)
+    @JoinColumn(name="event_id")
     private Event event;
 
-    @OneToMany(mappedBy = "teams")
-    private List<TeamMember> teamMembers;
+    @OneToMany(mappedBy = "team", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<TeamMember> teamMembers = new ArrayList<>();
 
     public Team(){}
-  /*  public Team(String id,String teamName,String teamLead,Event event){
+
+    public Team(String id,String teamName,String teamLead){
         this.id=id;
         this.teamName=teamName;
         this.teamLead=teamLead;
-        this.event=event;
-    }
-*/
-    public String getId() {
-        return id;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public String getId() {
+        return id;
     }
 
     public String getTeamName() {
         return teamName;
     }
 
-    public void setTeamName(String teamName) {
-        this.teamName = teamName;
-    }
-
     public String getTeamLead() {
         return teamLead;
-    }
-
-    public void setTeamLead(String teamLead) {
-        this.teamLead = teamLead;
     }
 
     public List<TeamMember> getTeamMembers() {
@@ -61,10 +47,8 @@ public class Team {
     }
 
     public void addTeamMember(TeamMember teamMember) {
-        if (teamMembers == null) {
-            teamMembers = new ArrayList<>();
-        }
         teamMembers.add(teamMember);
+        teamMember.setTeam(this);
     }
 
     public Event getEvent() {

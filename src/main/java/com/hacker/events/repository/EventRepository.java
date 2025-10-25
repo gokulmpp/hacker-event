@@ -1,6 +1,6 @@
-package com.hackIt.events.repository;
+package com.hacker.events.repository;
 
-import com.hackIt.events.domain.Event;
+import com.hacker.events.domain.Event;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

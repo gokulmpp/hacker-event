@@ -1,4 +1,4 @@
-package com.hackIt.events.controller.dto;
+package com.hacker.events.controller.dto;
 
 import jakarta.validation.constraints.NotBlank;
 

@@ -1,4 +1,4 @@
-package com.hackIt.events;
+package com.hacker.events;
 
 public class TeamException extends RuntimeException {
     public TeamException(String message) {

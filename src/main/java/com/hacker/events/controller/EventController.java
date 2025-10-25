@@ -1,11 +1,11 @@
-package com.hackIt.events.controller;
+package com.hacker.events.controller;
 
-import com.hackIt.events.controller.dto.EventCreateRequest;
-import com.hackIt.events.controller.dto.TeamCreateRequest;
-import com.hackIt.events.controller.dto.TeamMemberCreateRequest;
-import com.hackIt.events.service.EventsService;
-import com.hackIt.events.service.TeamMemberService;
-import com.hackIt.events.service.TeamService;
+import com.hacker.events.controller.dto.EventCreateRequest;
+import com.hacker.events.controller.dto.TeamCreateRequest;
+import com.hacker.events.controller.dto.TeamMemberCreateRequest;
+import com.hacker.events.service.EventsService;
+import com.hacker.events.service.TeamMemberService;
+import com.hacker.events.service.TeamService;
 import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
@@ -37,7 +37,7 @@ public class EventController {
         return ResponseEntity.ok(teamService.create(request));
     }
 
-    @PostMapping("/teamMemberCreate")
+    @PostMapping("teamMemberCreate")
     public ResponseEntity<String> teamMemberCreate(@Valid @RequestBody TeamMemberCreateRequest request){
         return ResponseEntity.ok(teamMemberService.create(request));
     }

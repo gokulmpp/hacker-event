@@ -1,8 +1,8 @@
-package com.hackIt.events.service;
+package com.hacker.events.service;
 
-import com.hackIt.events.controller.dto.EventCreateRequest;
-import com.hackIt.events.domain.Event;
-import com.hackIt.events.repository.EventRepository;
+import com.hacker.events.controller.dto.EventCreateRequest;
+import com.hacker.events.domain.Event;
+import com.hacker.events.repository.EventRepository;
 import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Service;
 import org.w3c.dom.events.EventException;
@@ -21,10 +21,7 @@ public class EventsService {
         if(eventRepository.existsByName(request.getName())){
             throw new EventException((short) 0,"event name must be unique");
         }
-        Event event=new Event();
-        event.setId(UUID.randomUUID().toString());
-        event.setName(request.getName());
-        event.setOrganizer(request.getOrganizer());
+        var event = new Event(UUID.randomUUID().toString(), request.getName(), request.getOrganizer());
         eventRepository.save(event);
         return event.getId();
     }

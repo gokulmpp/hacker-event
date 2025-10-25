@@ -1,8 +1,8 @@
-package com.hackIt.events.service;
+package com.hacker.events.service;
 
-import com.hackIt.events.controller.dto.TeamMemberCreateRequest;
-import com.hackIt.events.domain.TeamMember;
-import com.hackIt.events.repository.TeamMembersRepository;
+import com.hacker.events.controller.dto.TeamMemberCreateRequest;
+import com.hacker.events.domain.TeamMember;
+import com.hacker.events.repository.TeamMembersRepository;
 import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Service;
 
@@ -17,10 +17,7 @@ public class TeamMemberService {
     }
     @Transactional
     public String create(TeamMemberCreateRequest request){
-        TeamMember teamMembers=new TeamMember();
-        teamMembers.setId(UUID.randomUUID().toString());
-        teamMembers.setName(request.getName());
-        teamMembers.setEmail(request.getEmail());
+        TeamMember teamMembers = new TeamMember(UUID.randomUUID().toString(), request.getName(), request.getEmail());
         teamMembersRepository.save(teamMembers);
         return teamMembers.getId();
     }
